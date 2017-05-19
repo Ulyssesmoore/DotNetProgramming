@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3B94AE3E-5ADE-4774-9199-BC7BF2D0DADB}</ProjectGuid>
+    <ProjectGuid>{AD0348C9-3DE0-482D-8AC1-6DEBA912D1EE}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>TicTacToe</RootNamespace>
-    <AssemblyName>TicTacToe</AssemblyName>
+    <RootNamespace>MethodRunner</RootNamespace>
+    <AssemblyName>MethodRunner</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -45,16 +45,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="TicTacToeForm.cs">
+    <Compile Include="MethodRunnner.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TicTacToeForm.Designer.cs">
-      <DependentUpon>TicTacToeForm.cs</DependentUpon>
+    <Compile Include="MethodRunnner.Designer.cs">
+      <DependentUpon>MethodRunnner.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="TicTacToeForm.resx">
-      <DependentUpon>TicTacToeForm.cs</DependentUpon>
+    <EmbeddedResource Include="MethodRunnner.resx">
+      <DependentUpon>MethodRunnner.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -77,12 +77,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\TicTacToeEngine\TicTacToeEngine.csproj">
-      <Project>{24c2773f-ab2b-44b4-857f-1572acb9596d}</Project>
-      <Name>TicTacToeEngine</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

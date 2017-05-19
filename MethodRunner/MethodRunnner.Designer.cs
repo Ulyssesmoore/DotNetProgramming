@@ -1,6 +1,6 @@
-﻿namespace TicTacToe
+﻿namespace MethodRunner
 {
-    partial class Form1
+    partial class MethodRunnner
     {
         /// <summary>
         /// Required designer variable.
@@ -28,9 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // MethodRunnner
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(282, 253);
+            this.Name = "MethodRunnner";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.MethodRunnner_Load);
+            this.ResumeLayout(false);
+
         }
 
         #endregion

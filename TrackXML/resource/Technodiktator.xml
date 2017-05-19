@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<cd>
+  <artist>Turmion Kätilöt</artist>
+  <name>Technodiktator</name>
+  <tracks>
+    <track>
+      <title>Pyhä Maa</title>
+      <length>00:03:23</length>
+    </track>
+    <track>
+      <title>Jalopiina</title>
+      <length>00:04:22</length>
+    </track>
+    <track>
+      <title>Elävä Koneeski</title>
+      <length>00:04:02</length>
+    </track>
+  </tracks>
+</cd>

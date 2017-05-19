@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26403.7
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicTacToe", "TicTacToe\TicTacToe.csproj", "{3B94AE3E-5ADE-4774-9199-BC7BF2D0DADB}"
+	ProjectSection(ProjectDependencies) = postProject
+		{24C2773F-AB2B-44B4-857F-1572ACB9596D} = {24C2773F-AB2B-44B4-857F-1572ACB9596D}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicTacToeEngine", "TicTacToeEngine\TicTacToeEngine.csproj", "{24C2773F-AB2B-44B4-857F-1572ACB9596D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MethodRunner", "MethodRunner\MethodRunner.csproj", "{AD0348C9-3DE0-482D-8AC1-6DEBA912D1EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileReader", "FileReader\FileReader.csproj", "{0F05A181-0C4B-43DE-A143-5A880FAA7E85}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrackXML", "TrackXML\TrackXML.csproj", "{306461CA-D274-4ABF-B842-441720A1DAA5}"
+	ProjectSection(ProjectDependencies) = postProject
+		{3B94AE3E-5ADE-4774-9199-BC7BF2D0DADB} = {3B94AE3E-5ADE-4774-9199-BC7BF2D0DADB}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperStore", "SuperStore\SuperStore.csproj", "{1AB345E3-913C-4F36-811C-C12E6D8E5B4D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3B94AE3E-5ADE-4774-9199-BC7BF2D0DADB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B94AE3E-5ADE-4774-9199-BC7BF2D0DADB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B94AE3E-5ADE-4774-9199-BC7BF2D0DADB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B94AE3E-5ADE-4774-9199-BC7BF2D0DADB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24C2773F-AB2B-44B4-857F-1572ACB9596D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24C2773F-AB2B-44B4-857F-1572ACB9596D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24C2773F-AB2B-44B4-857F-1572ACB9596D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24C2773F-AB2B-44B4-857F-1572ACB9596D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD0348C9-3DE0-482D-8AC1-6DEBA912D1EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD0348C9-3DE0-482D-8AC1-6DEBA912D1EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD0348C9-3DE0-482D-8AC1-6DEBA912D1EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD0348C9-3DE0-482D-8AC1-6DEBA912D1EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F05A181-0C4B-43DE-A143-5A880FAA7E85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F05A181-0C4B-43DE-A143-5A880FAA7E85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F05A181-0C4B-43DE-A143-5A880FAA7E85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F05A181-0C4B-43DE-A143-5A880FAA7E85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{306461CA-D274-4ABF-B842-441720A1DAA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{306461CA-D274-4ABF-B842-441720A1DAA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{306461CA-D274-4ABF-B842-441720A1DAA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{306461CA-D274-4ABF-B842-441720A1DAA5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1AB345E3-913C-4F36-811C-C12E6D8E5B4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1AB345E3-913C-4F36-811C-C12E6D8E5B4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1AB345E3-913C-4F36-811C-C12E6D8E5B4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1AB345E3-913C-4F36-811C-C12E6D8E5B4D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
