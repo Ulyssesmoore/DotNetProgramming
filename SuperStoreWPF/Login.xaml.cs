@@ -27,12 +27,27 @@ namespace SuperStoreWPF
         {
             InitializeComponent();
             myStore = new Store();
+
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             var c = myStore.CheckLogin(UsernameBox.Text, PasswordBox.Password);
-            Debug.Print(c.ToString());
+            if (c == null)
+            {
+                MessageBox.Show("Login Failed");
+                return;
+            }
+
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            var rg = new RegisterForm(myStore);
+            rg.Closing+= delegate { this.Show(); };
+            this.Hide();
+            rg.Show();
         }
     }
 }
