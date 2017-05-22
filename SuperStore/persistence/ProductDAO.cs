@@ -14,11 +14,11 @@ namespace SuperStore.persistence
         {
             var conn = GetConnection();
             var comm = conn.CreateCommand();
-            comm.CommandText = "SELECT name, price FROM products";
+            comm.CommandText = "SELECT productid, name, price FROM products";
             var reader = comm.ExecuteReader();
             while (reader.Read())
             {
-                yield return new Product(reader.GetString("name"), reader.GetDouble("price"));
+                yield return new Product(reader.GetInt32("productid"), reader.GetString("name"), reader.GetDouble("price"));
             }
         }
     }

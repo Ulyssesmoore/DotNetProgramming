@@ -22,7 +22,7 @@ namespace FileReader
             Console.ReadKey();
         }
 
-        private static IEnumerable<String> GetWords(string path, Func<string, bool> Expression)
+        private static IEnumerable<String> GetWords(string path, Func<string, bool> expression)
         {
             string[] lines = System.IO.File.ReadAllLines(path);
             foreach (var line in lines)
@@ -32,7 +32,7 @@ namespace FileReader
                 var words = rgx.Replace(line, "").Trim().Split(' '); ;
                 foreach(var word in words)
                 {
-                    if(Expression(word))
+                    if(expression(word))
                     {
                         yield return word;
                     }

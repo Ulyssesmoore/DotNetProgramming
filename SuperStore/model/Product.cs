@@ -8,12 +8,14 @@ namespace SuperStore.model
 {
     public class Product
     {
+        private int productid;
         private string name;
         private double price;
         private int amountOwned;
 
-        public Product(string name, double price)
+        public Product(int productid, string name, double price)
         {
+            this.productid = productid;
             this.name = name;
             this.price = price;
         }
@@ -41,6 +43,12 @@ namespace SuperStore.model
         {
             get { return amountOwned; }
             set { amountOwned = value; }
+        }
+
+        public int Productid
+        {
+            get { return productid; }
+            set { productid = value; }
         }
 
         public override string ToString()

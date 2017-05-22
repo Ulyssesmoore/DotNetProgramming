@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -10,6 +11,7 @@ namespace SuperStore.model
     public class Store
     {
         private IEnumerable<Customer> customerList;
+        private Dictionary<Product, int> stock;
 
         public Store()
         {
@@ -52,6 +54,16 @@ namespace SuperStore.model
             byte[] data = Encoding.ASCII.GetBytes(input);
             data = new System.Security.Cryptography.SHA256Managed().ComputeHash(data);
             return Encoding.ASCII.GetString(data);
+        }
+
+        public Dictionary<Product, int> GetStock()
+        {
+            IStoreDAO isdao = new StoreDAO();
+            return isdao.GetStock();
+        }
+
+        public void Restock()
+        {
         }
     }
 }

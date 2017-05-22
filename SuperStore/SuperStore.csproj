@@ -68,7 +68,9 @@
     <Compile Include="persistence\CustomerDAO.cs" />
     <Compile Include="persistence\ICustomerDAO.cs" />
     <Compile Include="persistence\IProductDAO.cs" />
+    <Compile Include="persistence\IStoreDAO.cs" />
     <Compile Include="persistence\ProductDAO.cs" />
+    <Compile Include="persistence\StoreDAO.cs" />
     <Compile Include="RegisterForm.cs">
       <SubType>Form</SubType>
     </Compile>

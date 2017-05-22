@@ -25,7 +25,7 @@ namespace SuperStore
         public LoginForm()
         {
             InitializeComponent();
-            this.Size = new Size(300, 300);
+            this.Size = new Size(200, 300);
             usernameLabel = new Label
             {
                 Text = "Username:",
@@ -68,7 +68,7 @@ namespace SuperStore
             this.Controls.Add(registerLink);
 
             myStore = new Store();
-
+            CenterToScreen();
         }
 
         private void SuperStore_Load_1(Object sender, EventArgs e)
@@ -86,6 +86,8 @@ namespace SuperStore
             var storeForm = new SuperStore(c, myStore);
             storeForm.FormClosing += delegate { this.Show(); };
             this.Hide();
+            username.Text = "";
+            password.Text = "";
             storeForm.Show();
         }
 
