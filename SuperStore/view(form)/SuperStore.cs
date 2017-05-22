@@ -16,7 +16,8 @@ namespace SuperStore
     {
         private Customer currentUser;
         private DataGridView inventory, storage;
-        private Label userLabel, budgetLabel;
+        private Label userLabel, budgetLabel, inventoryLabel, storeLabel;
+        private Button buy;
 
         public SuperStore(Customer c, Store s)
         {
@@ -32,6 +33,18 @@ namespace SuperStore
             {
                 Text = "Credit: " + currentUser.Budget.ToString("C", CultureInfo.CurrentCulture),
                 Location = new Point(30,75)
+            };
+
+            inventoryLabel = new Label
+            {
+                Text = "My stuff",
+                Location = new Point(30, 125)
+            };
+
+            storeLabel = new Label
+            {
+                Text = "Current stock",
+                Location = new Point(330,125)
             };
 
             inventory = new DataGridView
@@ -54,6 +67,12 @@ namespace SuperStore
                 AllowUserToAddRows = false
             };
 
+            buy = new Button
+            {
+                Text = "Buy stuff",
+                Location = new Point(30, 370)
+            };
+
             storage.Columns.Add("name", "Name");
             storage.Columns.Add("price", "Price");
             storage.Columns.Add("amount", "Amount");
@@ -72,11 +91,19 @@ namespace SuperStore
 
             this.Controls.Add(userLabel);
             this.Controls.Add(budgetLabel);
+            this.Controls.Add(inventoryLabel);
+            this.Controls.Add(storeLabel);
             this.Controls.Add(inventory);
             this.Controls.Add(storage);
+            this.Controls.Add(buy);
             this.FormClosing += delegate { currentUser = null; };
 
             CenterToScreen();
+        }
+
+        private void StartBuyScreen()
+        {
+            
         }
 
         private void SuperStore_Load(object sender, EventArgs e)

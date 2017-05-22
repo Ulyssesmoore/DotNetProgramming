@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrackXML", "TrackXML\TrackX
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperStore", "SuperStore\SuperStore.csproj", "{1AB345E3-913C-4F36-811C-C12E6D8E5B4D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperStoreWPF", "SuperStoreWPF\SuperStoreWPF.csproj", "{ABAC7168-D7A3-468D-8859-3F9F176714D1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{1AB345E3-913C-4F36-811C-C12E6D8E5B4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1AB345E3-913C-4F36-811C-C12E6D8E5B4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1AB345E3-913C-4F36-811C-C12E6D8E5B4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABAC7168-D7A3-468D-8859-3F9F176714D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABAC7168-D7A3-468D-8859-3F9F176714D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABAC7168-D7A3-468D-8859-3F9F176714D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABAC7168-D7A3-468D-8859-3F9F176714D1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

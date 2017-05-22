@@ -29,7 +29,7 @@ namespace SuperStore
 
         public override string ToString()
         {
-            return name + " with budget " + budget + "\n";
+            return name + " with budget " + password + "\n";
         }
 
         public string Name

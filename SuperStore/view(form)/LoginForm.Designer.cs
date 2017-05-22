@@ -37,7 +37,7 @@
             this.ClientSize = new System.Drawing.Size(282, 253);
             this.Name = "SuperStore";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.SuperStore_Load_1);
+            this.Load += new System.EventHandler(this.LoginForm_Load);
             this.ResumeLayout(false);
 
         }

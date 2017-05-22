@@ -71,7 +71,7 @@ namespace SuperStore
             CenterToScreen();
         }
 
-        private void SuperStore_Load_1(Object sender, EventArgs e)
+        private void LoginForm_Load(Object sender, EventArgs e)
         {
 
         }
