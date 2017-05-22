@@ -39,7 +39,12 @@ namespace SuperStoreWPF
                 MessageBox.Show("Login Failed");
                 return;
             }
-
+            var storeForm = new SuperStore(c, myStore);
+            storeForm.Closing += delegate { this.Show(); };
+            this.Hide();
+            UsernameBox.Text = "";
+            PasswordBox.Password = "";
+            storeForm.Show();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
