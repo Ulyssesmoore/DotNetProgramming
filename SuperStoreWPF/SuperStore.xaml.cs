@@ -95,7 +95,10 @@ namespace SuperStoreWPF
 
         private void buy_Click(object sender, RoutedEventArgs e)
         {
-
+            var bs = new BuyScreen(currentUser, myStore);
+            bs.Closing += delegate { this.Show(); };
+            this.Hide();
+            bs.Show();
         }
     }
 }

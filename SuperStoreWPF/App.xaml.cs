@@ -13,5 +13,6 @@ namespace SuperStoreWPF
     /// </summary>
     public partial class App : Application
     {
+
     }
 }

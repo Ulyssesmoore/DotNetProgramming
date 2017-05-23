@@ -14,6 +14,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using SuperStore.model;
+using SuperStoreWebservice;
+using System.ServiceModel;
+using System.ServiceModel.Description;
 
 namespace SuperStoreWPF
 {
@@ -26,6 +29,7 @@ namespace SuperStoreWPF
         public MainWindow()
         {
             InitializeComponent();
+            
             myStore = new Store();
 
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
