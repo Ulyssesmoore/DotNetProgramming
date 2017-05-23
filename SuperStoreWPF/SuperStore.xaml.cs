@@ -30,30 +30,56 @@ namespace SuperStoreWPF
             myStore = s;
             currentUser = c;
 
-            DataGridTextColumn nameColumn = new DataGridTextColumn();
-            nameColumn.Header = "Name";
-            nameColumn.Binding = new Binding("Name");
+            SetupDataGrids();
+
+            userLabel.Content = "Current user: " + currentUser.Name;
+            budgetLabel.Content = "Credit: " + currentUser.Budget.ToString("C", CultureInfo.CurrentCulture);
+
+            this.Closing += delegate { currentUser = null; };
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+
+            if (c.Name == "Admin")
+            {
+                Restock.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void SetupDataGrids()
+        {
+            DataGridTextColumn nameColumn = new DataGridTextColumn()
+            {
+                Header = "Name",
+                Binding = new Binding("Name")
+            };
             inventory.Columns.Add(nameColumn);
 
-            DataGridTextColumn amountOwnedColumn = new DataGridTextColumn();
-            amountOwnedColumn.Header = "Amount";
-            amountOwnedColumn.Binding = new Binding("AmountOwned");
+            DataGridTextColumn amountOwnedColumn = new DataGridTextColumn()
+            {
+                Header = "Amount",
+                Binding = new Binding("AmountOwned")
+            };
             inventory.Columns.Add(amountOwnedColumn);
 
-            DataGridTextColumn productNameColumn = new DataGridTextColumn();
-            productNameColumn.Header = "Name";
-            productNameColumn.Binding = new Binding("Name");
+            DataGridTextColumn productNameColumn = new DataGridTextColumn()
+            {
+                Header = "Name",
+                Binding = new Binding("Name")
+            };
             storage.Columns.Add(productNameColumn);
 
-            DataGridTextColumn priceColumn = new DataGridTextColumn();
-            priceColumn.Header = "Price";
-            priceColumn.Binding = new Binding("Price");
+            DataGridTextColumn priceColumn = new DataGridTextColumn()
+            {
+                Header = "Price",
+                Binding = new Binding("Price")
+            };
             priceColumn.Binding.StringFormat = "$0.00";
             storage.Columns.Add(priceColumn);
 
-            DataGridTextColumn amountInStorageColumn = new DataGridTextColumn();
-            amountInStorageColumn.Header = "AmountOwned";
-            amountInStorageColumn.Binding = new Binding("AmountOwned");
+            DataGridTextColumn amountInStorageColumn = new DataGridTextColumn()
+            {
+                Header = "In Stock",
+                Binding = new Binding("AmountOwned")
+            };
             storage.Columns.Add(amountInStorageColumn);
 
             foreach (Product p in currentUser.GetOwnedProducts())
@@ -61,16 +87,15 @@ namespace SuperStoreWPF
                 inventory.Items.Add(p);
             }
 
-            foreach (KeyValuePair<Product, int> p in s.GetStock())
+            foreach (KeyValuePair<Product, int> p in myStore.GetStock())
             {
                 storage.Items.Add(new Product(p.Key.Name, p.Key.Price, p.Value));
             }
+        }
 
-            userLabel.Content = "Current user: " + currentUser.Name;
-            budgetLabel.Content = "Credit: " + currentUser.Budget.ToString("C", CultureInfo.CurrentCulture);
+        private void buy_Click(object sender, RoutedEventArgs e)
+        {
 
-            this.Closing += delegate { currentUser = null; };
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
     }
 }

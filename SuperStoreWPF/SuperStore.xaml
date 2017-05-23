@@ -15,6 +15,10 @@
         <DataGrid Name="storage" IsReadOnly="True" ColumnWidth="*" Grid.Column="1" HorizontalAlignment="Left" Height="200" Margin="220,200,0,0" VerticalAlignment="Top" Width="300"/>
         <Label Name ="userLabel"  Content="Label" HorizontalAlignment="Left" Margin="150,113,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="184"/>
         <Label Name="budgetLabel"  Content="Label" HorizontalAlignment="Left" Margin="150,144,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="184"/>
+        <Button Name="buy" Grid.ColumnSpan="2" Content="Buy stuff" HorizontalAlignment="Left" Margin="150,439,0,0" VerticalAlignment="Top" Width="75" Click="buy_Click"/>
+        <Label Content="My Inventory" HorizontalAlignment="Left" Margin="150,175,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="167"/>
+        <Label Content="Superstore's Stock" Grid.Column="1" HorizontalAlignment="Left" Margin="219.8,174,0,0" VerticalAlignment="Top" Width="131"/>
+        <Button Name="Restock" Visibility="Hidden" Content="Restock" Grid.Column="1" HorizontalAlignment="Left" Margin="219.8,439,0,0" VerticalAlignment="Top" Width="75"/>
 
     </Grid>
 </Window>
