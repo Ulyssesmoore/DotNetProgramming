@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
-using System.Windows;
 using SuperStore.persistence;
 
 namespace SuperStore.model
@@ -44,14 +43,13 @@ namespace SuperStore.model
             {
                 if (c.Name == name && c.Password == EncryptPassword(password))
                 {
-                    Debug.Write(c.Password + "   " + EncryptPassword(password));
                     customer = c;
                 }
             }
             return customer;
         }
 
-        public static string EncryptPassword(string input)
+        private static string EncryptPassword(string input)
         {
             byte[] data = Encoding.ASCII.GetBytes(input);
             data = new System.Security.Cryptography.SHA256Managed().ComputeHash(data);

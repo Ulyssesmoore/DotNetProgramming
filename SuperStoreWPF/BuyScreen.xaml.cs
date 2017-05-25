@@ -30,39 +30,19 @@ namespace SuperStoreWPF
             myStore = s;
             currentUser = c;
 
-            SetupDataGrids();
+            SetupGrid();
 
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
-        private void SetupDataGrids()
+        private void SetupGrid()
         {
-            DataGridTextColumn productNameColumn = new DataGridTextColumn()
-            {
-                Header = "Name",
-                Binding = new Binding("Name")
-            };
-            selectProducts.Columns.Add(productNameColumn);
+            selectProducts.ShowGridLines = true;
+        }
 
-            DataGridTextColumn priceColumn = new DataGridTextColumn()
-            {
-                Header = "Price",
-                Binding = new Binding("Price")
-            };
-            priceColumn.Binding.StringFormat = "$0.00";
-            selectProducts.Columns.Add(priceColumn);
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
 
-            DataGridTextColumn amountInStorageColumn = new DataGridTextColumn()
-            {
-                Header = "In Stock",
-                Binding = new Binding("AmountOwned")
-            };
-            selectProducts.Columns.Add(amountInStorageColumn);
-
-            foreach (KeyValuePair<Product, int> p in myStore.GetStock())
-            {
-                selectProducts.Items.Add(new Product(p.Key.Name, p.Key.Price, 0));
-            }
         }
     }
 }
