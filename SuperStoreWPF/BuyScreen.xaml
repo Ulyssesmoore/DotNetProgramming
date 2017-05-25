@@ -7,7 +7,18 @@
         mc:Ignorable="d"
         Title="BuyScreen" Height="500" Width="500">
     <Grid>
-        <Grid Name="selectProducts"  HorizontalAlignment="Left" Height="200" Margin="100,58,0,0" VerticalAlignment="Top" Width="300"/>
+        <Grid Name="selectProducts"  HorizontalAlignment="Left" Height="200" Margin="100,58,0,0" VerticalAlignment="Top" Width="300">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Name="productName" Width="2*" />
+                <ColumnDefinition Name="price" Width="1*" />
+                <ColumnDefinition Name="amount" Width="1*" />
+                <ColumnDefinition Name="inStock" Width="1*" />
+            </Grid.ColumnDefinitions>
+        </Grid>
         <Button Content="Buy it!" HorizontalAlignment="Left" Margin="100,283,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Label Name="currentBudget" Content="Label" HorizontalAlignment="Left" Margin="272,258,0,0" VerticalAlignment="Top" Width="164"/>
+        <Label Name="substraction" Content="Label" HorizontalAlignment="Left" Margin="272,283,0,0" VerticalAlignment="Top" Width="164"/>
+        <Label Name="budgetLeft" Content="Label" HorizontalAlignment="Left" Margin="272,309,0,0" VerticalAlignment="Top" Width="164"/>
+        <Label Name="notifications"  Content="Label" HorizontalAlignment="Left" Margin="100,27,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

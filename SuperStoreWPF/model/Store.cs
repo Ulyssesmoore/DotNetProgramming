@@ -64,6 +64,12 @@ namespace SuperStore.model
             return isdao.GetStock();
         }
 
+        public Dictionary<Product, int> Stock
+        {
+            get { return stock; }
+            set { stock = value; }
+        }
+
         public void Restock()
         {
         }
