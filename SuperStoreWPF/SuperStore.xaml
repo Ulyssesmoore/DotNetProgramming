@@ -19,6 +19,7 @@
         <Label Content="My Inventory" HorizontalAlignment="Left" Margin="150,175,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="167"/>
         <Label Content="Superstore's Stock" Grid.Column="1" HorizontalAlignment="Left" Margin="219.8,174,0,0" VerticalAlignment="Top" Width="131"/>
         <Button Name="Restock" Visibility="Hidden" Content="Restock" Grid.Column="1" HorizontalAlignment="Left" Margin="219.8,439,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Name="addProduct" Visibility="Hidden" Content="New product" Grid.Column="1" HorizontalAlignment="Left" Margin="328.8,439,0,0" VerticalAlignment="Top" Width="75"/>
 
     </Grid>
 </Window>

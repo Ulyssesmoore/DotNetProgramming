@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/SuperStoreWebService2" />
+  <xs:element name="GetStock">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStockResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetStockResult" nillable="true" type="q1:ArrayOfKeyValueOfProductint9g80zeZ_P" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="HandleTransaction">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="transactionDetails" nillable="true" type="q2:ArrayOfKeyValueOfProductint9g80zeZ_P" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SuperStoreWebService2" minOccurs="0" name="buyer" nillable="true" type="q3:Customer" />
+        <xs:element minOccurs="0" name="transactionAmount" type="xs:double" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="HandleTransactionResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddProductToDatabase">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SuperStoreWebService2" minOccurs="0" name="p" nillable="true" type="q4:Product" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddProductToDatabaseResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

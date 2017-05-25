@@ -10,5 +10,7 @@ namespace SuperStore.persistence
     interface IStoreDAO
     {
         Dictionary<Product, int> GetStock();
+        void HandleTransaction(Dictionary<Product, int> transactionDetails, Customer buyer, double transactionAmount);
+        void AddProductToDatabase(Product p);
     }
 }

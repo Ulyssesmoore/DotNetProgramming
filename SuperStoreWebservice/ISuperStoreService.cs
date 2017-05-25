@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using SuperStore;
 
 namespace SuperStoreWebservice
 {
@@ -12,7 +14,7 @@ namespace SuperStoreWebservice
     public interface ISuperStoreService
     {
         [OperationContract]
-        DateTime GetDate();
+        DateTime GetAllCustomers();
 
         [OperationContract]
         int Add(int x, int y);

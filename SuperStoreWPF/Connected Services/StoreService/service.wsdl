@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="StoreService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/SuperStoreWebService2" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IStoreService_GetStock_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStock" />
+  </wsdl:message>
+  <wsdl:message name="IStoreService_GetStock_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStockResponse" />
+  </wsdl:message>
+  <wsdl:message name="IStoreService_HandleTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:HandleTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IStoreService_HandleTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:HandleTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IStoreService_AddProductToDatabase_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddProductToDatabase" />
+  </wsdl:message>
+  <wsdl:message name="IStoreService_AddProductToDatabase_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddProductToDatabaseResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IStoreService">
+    <wsdl:operation name="GetStock">
+      <wsdl:input wsaw:Action="http://tempuri.org/IStoreService/GetStock" message="tns:IStoreService_GetStock_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IStoreService/GetStockResponse" message="tns:IStoreService_GetStock_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="HandleTransaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IStoreService/HandleTransaction" message="tns:IStoreService_HandleTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IStoreService/HandleTransactionResponse" message="tns:IStoreService_HandleTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddProductToDatabase">
+      <wsdl:input wsaw:Action="http://tempuri.org/IStoreService/AddProductToDatabase" message="tns:IStoreService_AddProductToDatabase_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IStoreService/AddProductToDatabaseResponse" message="tns:IStoreService_AddProductToDatabase_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IStoreService" type="tns:IStoreService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetStock">
+      <soap:operation soapAction="http://tempuri.org/IStoreService/GetStock" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HandleTransaction">
+      <soap:operation soapAction="http://tempuri.org/IStoreService/HandleTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddProductToDatabase">
+      <soap:operation soapAction="http://tempuri.org/IStoreService/AddProductToDatabase" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="StoreService">
+    <wsdl:port name="BasicHttpBinding_IStoreService" binding="tns:BasicHttpBinding_IStoreService">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/SuperStoreWebService2/StoreService/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

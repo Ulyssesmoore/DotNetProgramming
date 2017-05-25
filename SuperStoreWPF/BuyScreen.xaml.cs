@@ -15,7 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using SuperStore;
-using SuperStore.model;
+using SuperStoreWebService2;
 
 namespace SuperStoreWPF
 {
@@ -50,7 +50,7 @@ namespace SuperStoreWPF
         {
             selectProducts.ShowGridLines = true;
             int i = 0;
-            foreach (KeyValuePair<Product, int> entry in myStore.GetStock())
+            foreach (KeyValuePair<Product, int> entry in myStore.Stock)
             {
                 selectProducts.RowDefinitions.Add(new RowDefinition()
                 {
@@ -78,6 +78,7 @@ namespace SuperStoreWPF
                 TextBox amountInput = new TextBox();
                 amountInput.PreviewTextInput += IsTextAllowed;
                 amountInput.TextChanged += GetSum;
+
                 DataObject.AddPastingHandler(amountInput, OnCancelCommand);
                 amountInput.SetValue(Grid.ColumnProperty, 3);
                 amountInput.SetValue(Grid.RowProperty, i);
@@ -98,11 +99,12 @@ namespace SuperStoreWPF
                 TextBox tb = (TextBox)selectProducts.Children.Cast<UIElement>().First(ef => Grid.GetColumn(ef) == 3 && Grid.GetRow(ef) == i);
                 if (!string.IsNullOrWhiteSpace(tb.Text))
                 {
-                    Product p = myStore.GetStock().Keys.ElementAt(i);
+                    Product p = myStore.Stock.Keys.ElementAt(i);
                     purchasedItems.Add(p,Convert.ToInt32(tb.Text));
                 }
             }
-            myStore.BuyStuff(purchasedItems, currentUser , Convert.ToDouble(substraction.Content));
+            IStoreService iss = new SuperStoreWebService2.StoreService();
+            iss.HandleTransaction(purchasedItems, currentUser , Convert.ToDouble(substraction.Content));
             this.Close();
         }
 

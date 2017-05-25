@@ -80,12 +80,6 @@
     <None Include="SuperStoreServiceClient_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SuperStoreWebservice\SuperStoreWebservice.csproj">
-      <Project>{616e88f9-899d-4f8c-ab9f-09289eaa6a5f}</Project>
-      <Name>SuperStoreWebservice</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.2">
       <Visible>False</Visible>
       <ProductName>Microsoft .NET Framework 4.6.2 %28x86 and x64%29</ProductName>

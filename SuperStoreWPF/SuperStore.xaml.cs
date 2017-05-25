@@ -13,7 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using SuperStore;
-using SuperStore.model;
+using SuperStoreWebService2;
 
 namespace SuperStoreWPF
 {
@@ -38,6 +38,8 @@ namespace SuperStoreWPF
             if (c.Name == "Admin")
             {
                 Restock.Visibility = Visibility.Visible;
+                addProduct.Visibility = Visibility.Visible;
+                addProduct.Click += AddProduct_Click;
             }
         }
 
@@ -83,12 +85,14 @@ namespace SuperStoreWPF
             };
             storage.Columns.Add(amountInStorageColumn);
 
-            foreach (Product p in currentUser.GetOwnedProducts())
+            ICustomerService ics = new SuperStoreWebService2.CustomerService();
+
+            foreach (Product p in ics.GetOwnedProducts(currentUser.Name))
             {
                 inventory.Items.Add(p);
             }
 
-            foreach (KeyValuePair<Product, int> p in myStore.GetStock())
+            foreach (KeyValuePair<Product, int> p in myStore.Stock)
             {
                 storage.Items.Add(new Product(p.Key.Name, p.Key.Price, p.Value));
             }
@@ -102,6 +106,13 @@ namespace SuperStoreWPF
             var bs = new BuyScreen(currentUser, myStore, this);
             this.Hide();
             bs.Show();
+        }
+
+        private void AddProduct_Click(object sender, RoutedEventArgs e)
+        {
+            var aps = new AddProductScreen(currentUser, myStore, this);
+            this.Hide();
+            aps.Show();
         }
     }
 }

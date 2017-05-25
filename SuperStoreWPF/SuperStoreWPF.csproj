@@ -65,10 +65,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddProductScreen.xaml.cs">
+      <DependentUpon>AddProductScreen.xaml</DependentUpon>
+    </Compile>
     <Compile Include="BuyScreen.xaml.cs">
       <DependentUpon>BuyScreen.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Connected Services\ServiceReference1\Reference.cs">
+    <Compile Include="Connected Services\CustomerService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\ProductService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\StoreService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -79,6 +92,10 @@
     <Compile Include="SuperStore.xaml.cs">
       <DependentUpon>SuperStore.xaml</DependentUpon>
     </Compile>
+    <Page Include="AddProductScreen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="BuyScreen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -105,16 +122,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="model\Customer.cs" />
-    <Compile Include="model\Product.cs" />
-    <Compile Include="model\Store.cs" />
-    <Compile Include="persistence\BaseDAO.cs" />
-    <Compile Include="persistence\CustomerDAO.cs" />
-    <Compile Include="persistence\ICustomerDAO.cs" />
-    <Compile Include="persistence\IProductDAO.cs" />
-    <Compile Include="persistence\IStoreDAO.cs" />
-    <Compile Include="persistence\ProductDAO.cs" />
-    <Compile Include="persistence\StoreDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -132,14 +139,42 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Connected Services\ServiceReference1\item.xsd">
+    <None Include="Connected Services\CustomerService\service.wsdl" />
+    <None Include="Connected Services\CustomerService\service.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServiceReference1\item1.xsd">
+    <None Include="Connected Services\CustomerService\service1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServiceReference1\SuperStoreService.wsdl" />
+    <None Include="Connected Services\CustomerService\SuperStoreWebService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProductService\service.wsdl" />
+    <None Include="Connected Services\ProductService\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProductService\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProductService\SuperStoreWebService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\StoreService\Arrays.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\StoreService\service.wsdl" />
+    <None Include="Connected Services\StoreService\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\StoreService\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\StoreService\SuperStoreWebService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\SuperStoreWebService2.Customer.datasource" />
+    <None Include="Properties\DataSources\SuperStoreWebService2.Product.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -149,25 +184,51 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SuperStoreWebservice\SuperStoreWebservice.csproj">
-      <Project>{616e88f9-899d-4f8c-ab9f-09289eaa6a5f}</Project>
-      <Name>SuperStoreWebservice</Name>
+    <ProjectReference Include="..\SuperStoreWebService2\SuperStoreWebService2.csproj">
+      <Project>{bb731e7d-32d1-4766-8e99-a7b3f1753290}</Project>
+      <Name>SuperStoreWebService2</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\ServiceReference1\" />
+    <WCFMetadataStorage Include="Connected Services\CustomerService\" />
+    <WCFMetadataStorage Include="Connected Services\ProductService\" />
+    <WCFMetadataStorage Include="Connected Services\StoreService\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ServiceReference1\configuration91.svcinfo" />
+    <None Include="Connected Services\CustomerService\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ServiceReference1\configuration.svcinfo" />
+    <None Include="Connected Services\CustomerService\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ServiceReference1\Reference.svcmap">
+    <None Include="Connected Services\CustomerService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ProductService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ProductService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ProductService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\StoreService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\StoreService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\StoreService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

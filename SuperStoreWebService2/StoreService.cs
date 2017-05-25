@@ -1,17 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
+using System.ServiceModel;
 using System.Text;
-using System.Threading.Tasks;
-using SuperStore;
-using SuperStore.model;
 using SuperStore.persistence;
 
-namespace SuperStoreWPF.persistence
+namespace SuperStoreWebService2
 {
-    class StoreDAO : BaseDAO, IStoreDAO
+    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "StoreService" in both code and config file together.
+    public class StoreService : BaseDAO, IStoreService
     {
-        public Dictionary<Product,int> GetStock()
+        public Dictionary<Product, int> GetStock()
         {
             var stock = new Dictionary<Product, int>();
             var conn = GetConnection();
@@ -26,7 +26,7 @@ namespace SuperStoreWPF.persistence
             return stock;
         }
 
-        public void HandleTransaction(Dictionary<Product, int> transactionDetails, Customer buyer, double transactionAmount)
+        public void HandleTransaction(Dictionary<Product, int> transactionDetails, SuperStoreWebService2.Customer buyer, double transactionAmount)
         {
             var conn = GetConnection();
             var comm = conn.CreateCommand();

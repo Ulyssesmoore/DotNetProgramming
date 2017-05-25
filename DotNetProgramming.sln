@@ -6,9 +6,10 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicTacToe", "TicTacToe\TicTacToe.csproj", "{3B94AE3E-5ADE-4774-9199-BC7BF2D0DADB}"
 	ProjectSection(ProjectDependencies) = postProject
 		{24C2773F-AB2B-44B4-857F-1572ACB9596D} = {24C2773F-AB2B-44B4-857F-1572ACB9596D}
+		{BB731E7D-32D1-4766-8E99-A7B3F1753290} = {BB731E7D-32D1-4766-8E99-A7B3F1753290}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicTacToeEngine", "TicTacToeEngine\TicTacToeEngine.csproj", "{24C2773F-AB2B-44B4-857F-1572ACB9596D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TicTacToeEngine", "TicTacToeEngine\TicTacToeEngine.csproj", "{24C2773F-AB2B-44B4-857F-1572ACB9596D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MethodRunner", "MethodRunner\MethodRunner.csproj", "{AD0348C9-3DE0-482D-8AC1-6DEBA912D1EE}"
 EndProject
@@ -23,9 +24,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperStore", "SuperStore\Su
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperStoreWPF", "SuperStoreWPF\SuperStoreWPF.csproj", "{ABAC7168-D7A3-468D-8859-3F9F176714D1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperStoreWebservice", "SuperStoreWebservice\SuperStoreWebservice.csproj", "{616E88F9-899D-4F8C-AB9F-09289EAA6A5F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperStoreServiceClient", "SuperStoreServiceClient\SuperStoreServiceClient.csproj", "{0E66D649-F71B-492C-8150-04A4064965B8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperStoreWebService2", "SuperStoreWebService2\SuperStoreWebService2.csproj", "{BB731E7D-32D1-4766-8E99-A7B3F1753290}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -61,14 +60,10 @@ Global
 		{ABAC7168-D7A3-468D-8859-3F9F176714D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ABAC7168-D7A3-468D-8859-3F9F176714D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ABAC7168-D7A3-468D-8859-3F9F176714D1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{616E88F9-899D-4F8C-AB9F-09289EAA6A5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{616E88F9-899D-4F8C-AB9F-09289EAA6A5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{616E88F9-899D-4F8C-AB9F-09289EAA6A5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{616E88F9-899D-4F8C-AB9F-09289EAA6A5F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0E66D649-F71B-492C-8150-04A4064965B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0E66D649-F71B-492C-8150-04A4064965B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0E66D649-F71B-492C-8150-04A4064965B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0E66D649-F71B-492C-8150-04A4064965B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB731E7D-32D1-4766-8E99-A7B3F1753290}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB731E7D-32D1-4766-8E99-A7B3F1753290}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB731E7D-32D1-4766-8E99-A7B3F1753290}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB731E7D-32D1-4766-8E99-A7B3F1753290}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

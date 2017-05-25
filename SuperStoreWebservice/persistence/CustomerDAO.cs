@@ -24,11 +24,11 @@ namespace SuperStore.persistence
         {
             var conn = GetConnection();
             var comm = conn.CreateCommand();
-            comm.CommandText = "SELECT name, password, budget FROM customers";
+            comm.CommandText = "SELECT customerid, name, password, budget FROM customers";
             var reader = comm.ExecuteReader();
             while (reader.Read())
             {
-                yield return new Customer(reader.GetString("name"), reader.GetString("password"),
+                yield return new Customer(reader.GetInt32("customerid"), reader.GetString("name"), reader.GetString("password"),
                     reader.GetDouble("budget"));
             }
         }
