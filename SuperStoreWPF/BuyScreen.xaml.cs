@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -25,9 +26,11 @@ namespace SuperStoreWPF
     {
         private Store myStore;
         private Customer currentUser;
+        private SuperStore storescreen;
 
-        public BuyScreen(Customer c, Store s)
+        public BuyScreen(Customer c, Store s, SuperStore st)
         {
+            storescreen = st;
             InitializeComponent();
             myStore = s;
             currentUser = c;
@@ -39,6 +42,8 @@ namespace SuperStoreWPF
             budgetLeft.Content = "0.0";
 
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
+
+            Closing += BackToStore;
         }
 
         private void SetupGrid()
@@ -87,7 +92,18 @@ namespace SuperStoreWPF
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            
+            Dictionary<Product, int> purchasedItems = new Dictionary<Product, int>();
+            for (int i = 0; i < selectProducts.RowDefinitions.Count; i++)
+            {
+                TextBox tb = (TextBox)selectProducts.Children.Cast<UIElement>().First(ef => Grid.GetColumn(ef) == 3 && Grid.GetRow(ef) == i);
+                if (!string.IsNullOrWhiteSpace(tb.Text))
+                {
+                    Product p = myStore.GetStock().Keys.ElementAt(i);
+                    purchasedItems.Add(p,Convert.ToInt32(tb.Text));
+                }
+            }
+            myStore.BuyStuff(purchasedItems, currentUser , Convert.ToDouble(substraction.Content));
+            this.Close();
         }
 
         private void IsTextAllowed(object sender, TextCompositionEventArgs e)
@@ -100,24 +116,32 @@ namespace SuperStoreWPF
         private void GetSum(object sender, TextChangedEventArgs e)
         {
             double totalprice = 0.0;
+            bool stockTooLow = false;
             for (int i=0; i < selectProducts.RowDefinitions.Count;i++)
             {
-                Label priceLabel = (Label) selectProducts.Children.Cast<UIElement>()
-                    .First(ef => Grid.GetColumn(ef) == 1 && Grid.GetRow(ef) == i);
+                Label priceLabel = (Label) selectProducts.Children.Cast<UIElement>().First(ef => Grid.GetColumn(ef) == 1 && Grid.GetRow(ef) == i);
+                Label stockLabel = (Label)selectProducts.Children.Cast<UIElement>().First(ef => Grid.GetColumn(ef) == 2 && Grid.GetRow(ef) == i);
                 TextBox tb = (TextBox)selectProducts.Children.Cast<UIElement>().First(ef => Grid.GetColumn(ef) == 3 && Grid.GetRow(ef) == i);
                 if (!string.IsNullOrWhiteSpace(tb.Text))
                 {
                     totalprice += Convert.ToInt32(tb.Text) * Convert.ToDouble(priceLabel.Content);
+                    if (Convert.ToInt32(tb.Text) > Convert.ToInt32(stockLabel.Content))
+                    {
+                        stockTooLow = true;
+                    }
                 }
             }
-            Debug.WriteLine(totalprice);
+            BuyButton.IsEnabled = !(currentUser.Budget - totalprice <= 0.0) &&!stockTooLow;
             substraction.Content = Convert.ToString(totalprice * -1);
-            BuyButton.IsEnabled = !((currentUser.Budget - totalprice) < 0.0);
-            notifications.Content = (currentUser.Budget - totalprice < 0.0) ? "You dont have enough budget for this purchase" : "No notifications";
+            notifications.Content = (currentUser.Budget - totalprice < 0.0) ? "You don't have enough budget for this purchase" : "No notifications";
             budgetLeft.Content = Convert.ToString(currentUser.Budget - totalprice);
         }
 
-
+        private void BackToStore(object sender, CancelEventArgs e)
+        {
+            storescreen.SetupDataGrids();
+            storescreen.Show();
+        }
 
         private void OnCancelCommand(object sender, DataObjectEventArgs e)
         {

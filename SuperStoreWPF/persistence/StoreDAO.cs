@@ -23,5 +23,32 @@ namespace SuperStore.persistence
             }
             return stock;
         }
+
+        public void HandleTransaction(Dictionary<Product, int> transactionDetails, Customer buyer, double transactionAmount)
+        {
+            var conn = GetConnection();
+            var comm = conn.CreateCommand();
+            comm.CommandText = "UPDATE customers SET budget = (budget + ?transactionValue) where customerid = ?id";
+            comm.Parameters.AddWithValue("?transactionValue", transactionAmount);
+            comm.Parameters.AddWithValue("?id", buyer.Id);
+            comm.ExecuteNonQuery();
+            foreach (KeyValuePair<Product, int> entry in transactionDetails)
+            {
+                comm.CommandText =
+                    "update storages set amount_stored = (amount_stored - " + Convert.ToString(entry.Value) + ") where productid = " + Convert.ToString(entry.Key.Productid);
+                comm.ExecuteNonQuery();
+            }
+            string sql = "INSERT INTO owned_products(customerid, productid) VALUES ";
+            foreach (KeyValuePair<Product, int> entry in transactionDetails)
+            {
+                for (int i = 0; i < entry.Value; i++)
+                {
+                    sql += "(" + Convert.ToString(buyer.Id) + ", " + Convert.ToString(entry.Key.Productid) + "),";
+                }
+            }
+            sql = sql.Remove(sql.Length - 1, 1) + ";";
+            comm.CommandText = sql;
+            comm.ExecuteNonQuery();
+        }
     }
 }

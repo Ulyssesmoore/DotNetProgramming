@@ -32,9 +32,6 @@ namespace SuperStoreWPF
 
             SetupDataGrids();
 
-            userLabel.Content = "Current user: " + currentUser.Name;
-            budgetLabel.Content = "Credit: " + currentUser.Budget.ToString("C", CultureInfo.CurrentCulture);
-
             this.Closing += delegate { currentUser = null; };
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
@@ -44,8 +41,12 @@ namespace SuperStoreWPF
             }
         }
 
-        private void SetupDataGrids()
+        public void SetupDataGrids()
         {
+            inventory.Items.Clear();
+            inventory.Columns.Clear();
+            storage.Items.Clear();
+            storage.Columns.Clear();
             DataGridTextColumn nameColumn = new DataGridTextColumn()
             {
                 Header = "Name",
@@ -91,12 +92,14 @@ namespace SuperStoreWPF
             {
                 storage.Items.Add(new Product(p.Key.Name, p.Key.Price, p.Value));
             }
+
+            userLabel.Content = "Current user: " + currentUser.Name;
+            budgetLabel.Content = "Credit: " + currentUser.Budget.ToString("C", CultureInfo.CurrentCulture);
         }
 
         private void buy_Click(object sender, RoutedEventArgs e)
         {
-            var bs = new BuyScreen(currentUser, myStore);
-            bs.Closing += delegate { this.Show(); };
+            var bs = new BuyScreen(currentUser, myStore, this);
             this.Hide();
             bs.Show();
         }

@@ -70,6 +70,12 @@ namespace SuperStore.model
             set { stock = value; }
         }
 
+        public void BuyStuff(Dictionary<Product, int> boughtStuff, Customer buyer, double transactionAmount)
+        {
+            IStoreDAO isdao = new StoreDAO();
+            isdao.HandleTransaction(boughtStuff, buyer, transactionAmount);
+        }
+
         public void Restock()
         {
         }

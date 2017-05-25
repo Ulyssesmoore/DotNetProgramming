@@ -10,12 +10,20 @@ namespace SuperStore
 {
     public class Customer
     {
+        private int id;
         private string name;
         private string password;
         private double budget;
-
         public Customer(string name, string password, double budget)
         {
+            this.name = name;
+            this.password = password;
+            this.budget = budget;
+        }
+
+        public Customer(int id, string name, string password, double budget)
+        {
+            this.id = id;
             this.name = name;
             this.password = password;
             this.budget = budget;
@@ -30,6 +38,12 @@ namespace SuperStore
         public override string ToString()
         {
             return name + " with budget " + password + "\n";
+        }
+
+        public int Id
+        {
+            get { return id; }
+            set { id = value; }
         }
 
         public string Name
