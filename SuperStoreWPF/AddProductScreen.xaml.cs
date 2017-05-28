@@ -55,6 +55,13 @@ namespace SuperStoreWPF
 
         }
 
+        private void IsTextAllowedDouble(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("^[0-9]([.,][0-9]{1,2})?$");
+            e.Handled = !regex.IsMatch(e.Text);
+
+        }
+
         private void OnCancelCommand(object sender, DataObjectEventArgs e)
         {
             e.CancelCommand();

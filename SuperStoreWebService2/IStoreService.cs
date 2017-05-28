@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Runtime.Serialization;
+using System.Security.Cryptography;
 using System.ServiceModel;
 using System.Text;
 
@@ -69,9 +70,10 @@ namespace SuperStoreWebService2
 
         public static string EncryptPassword(string input)
         {
-            byte[] data = Encoding.ASCII.GetBytes(input);
-            data = new System.Security.Cryptography.SHA256Managed().ComputeHash(data);
-            return Encoding.ASCII.GetString(data);
+            Byte[] inputBytes = Encoding.UTF8.GetBytes(input);
+            SHA256CryptoServiceProvider ssp = new SHA256CryptoServiceProvider();
+            Byte[] hashedBytes = ssp.ComputeHash(inputBytes);
+            return BitConverter.ToString(hashedBytes);
         }
 
         [DataMember]
