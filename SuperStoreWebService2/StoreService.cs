@@ -27,7 +27,7 @@ namespace SuperStoreWebService2
             return stock;
         }
 
-        public void HandleTransaction(Dictionary<Product, int> transactionDetails, SuperStoreWebService2.Customer buyer, double transactionAmount)
+        public void HandleTransaction(Dictionary<Product, int> transactionDetails, Customer buyer, double transactionAmount)
         {
             var conn = GetConnection();
             var comm = conn.CreateCommand();

@@ -52,6 +52,7 @@ namespace SuperStoreWPF
             int i = 0;
             foreach (KeyValuePair<Product, int> entry in myStore.Stock)
             {
+                if (entry.Value <= 0) continue;
                 selectProducts.RowDefinitions.Add(new RowDefinition()
                 {
                     Height = GridLength.Auto

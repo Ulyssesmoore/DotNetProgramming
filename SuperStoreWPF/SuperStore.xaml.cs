@@ -94,7 +94,10 @@ namespace SuperStoreWPF
 
             foreach (KeyValuePair<Product, int> p in myStore.Stock)
             {
-                storage.Items.Add(new Product(p.Key.Name, p.Key.Price, p.Value));
+                if (p.Value > 0)
+                {
+                    storage.Items.Add(new Product(p.Key.Name, p.Key.Price, p.Value));
+                }
             }
 
             userLabel.Content = "Current user: " + currentUser.Name;

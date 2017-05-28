@@ -34,6 +34,7 @@ namespace SuperStoreWPF
             storescreen = ss;
 
             amountInput.PreviewTextInput += IsTextAllowed;
+            priceInput.PreviewTextInput += IsTextAllowedDouble;
             DataObject.AddPastingHandler(amountInput, OnCancelCommand);
             DataObject.AddPastingHandler(priceInput, OnCancelCommand);
 
@@ -73,6 +74,7 @@ namespace SuperStoreWPF
             {
                 IStoreService iss = new SuperStoreWebService2.StoreService();
                 iss.AddProductToDatabase(new Product(nameInput.Text, Convert.ToDouble(priceInput.Text), Convert.ToInt32(amountInput.Text)));
+
             }
         }
     }
