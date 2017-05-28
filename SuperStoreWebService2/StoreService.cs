@@ -68,7 +68,7 @@ namespace SuperStoreWebService2
             comm.ExecuteNonQuery();
         }
 
-        public static string EncryptPassword(string input)
+        public string EncryptPassword(string input)
         {
             Byte[] inputBytes = Encoding.UTF8.GetBytes(input);
             SHA256CryptoServiceProvider ssp = new SHA256CryptoServiceProvider();
