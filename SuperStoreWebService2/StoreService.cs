@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
+using System.Security.Cryptography;
 using System.ServiceModel;
 using System.Text;
 using SuperStore.persistence;
@@ -65,6 +66,14 @@ namespace SuperStoreWebService2
             comm.Parameters.AddWithValue("?pname", p.Name);
             comm.Parameters.AddWithValue("?amount", p.AmountOwned);
             comm.ExecuteNonQuery();
+        }
+
+        public static string EncryptPassword(string input)
+        {
+            Byte[] inputBytes = Encoding.UTF8.GetBytes(input);
+            SHA256CryptoServiceProvider ssp = new SHA256CryptoServiceProvider();
+            Byte[] hashedBytes = ssp.ComputeHash(inputBytes);
+            return BitConverter.ToString(hashedBytes);
         }
     }
 }

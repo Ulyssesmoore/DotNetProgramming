@@ -22,6 +22,9 @@ namespace SuperStoreWebService2
 
         [OperationContract]
         void AddProductToDatabase(Product p);
+
+        [OperationContract]
+        string EncryptPassword(string input);
     }
 
     [DataContract]
