@@ -25,6 +25,9 @@ namespace SuperStoreWebService2
 
         [OperationContract]
         string EncryptPassword(string input);
+
+//        [OperationContract]
+//        void RestockProduct(string name, int amount);
     }
 
     [DataContract]

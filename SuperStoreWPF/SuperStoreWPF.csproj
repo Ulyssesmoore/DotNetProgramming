@@ -89,6 +89,9 @@
     <Compile Include="RegisterForm.xaml.cs">
       <DependentUpon>RegisterForm.xaml</DependentUpon>
     </Compile>
+    <Compile Include="RestockScreen.xaml.cs">
+      <DependentUpon>RestockScreen.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SuperStore.xaml.cs">
       <DependentUpon>SuperStore.xaml</DependentUpon>
     </Compile>
@@ -113,6 +116,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="RegisterForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RestockScreen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

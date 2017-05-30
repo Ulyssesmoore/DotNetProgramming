@@ -38,6 +38,7 @@ namespace SuperStoreWPF
             if (c.Name == "Admin")
             {
                 Restock.Visibility = Visibility.Visible;
+                Restock.Click += Restock_Click;
                 addProduct.Visibility = Visibility.Visible;
                 addProduct.Click += AddProduct_Click;
             }
@@ -116,6 +117,13 @@ namespace SuperStoreWPF
             var aps = new AddProductScreen(currentUser, myStore, this);
             this.Hide();
             aps.Show();
+        }
+
+        private void Restock_Click(object sender, RoutedEventArgs e)
+        {
+            var rs = new RestockScreen(currentUser, myStore, this);
+            this.Hide();
+            rs.Show();
         }
     }
 }

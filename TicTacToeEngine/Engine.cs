@@ -16,7 +16,7 @@ namespace TicTacToeEngine
             { 2, 4, 6 }
          };
 
-        public static Boolean checkWin(String[] board)
+        public static bool checkWin(String[] board)
         {
             Boolean b = false;
             for (int i = 0; i < wincombos.GetLength(0); i++)

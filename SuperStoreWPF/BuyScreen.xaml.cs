@@ -98,9 +98,18 @@ namespace SuperStoreWPF
             for (int i = 0; i < selectProducts.RowDefinitions.Count; i++)
             {
                 TextBox tb = (TextBox)selectProducts.Children.Cast<UIElement>().First(ef => Grid.GetColumn(ef) == 3 && Grid.GetRow(ef) == i);
+                Label lb = (Label)selectProducts.Children.Cast<UIElement>().First(ef => Grid.GetColumn(ef) == 0 && Grid.GetRow(ef) == i);
                 if (!string.IsNullOrWhiteSpace(tb.Text))
                 {
-                    Product p = myStore.Stock.Keys.ElementAt(i);
+                    Product p = null;
+                    foreach (KeyValuePair<Product, int> entry in myStore.Stock)
+                    {
+                        if (entry.Key.Name == lb.Content)
+                        {
+                            p = entry.Key;
+                        }
+                    }
+                        
                     purchasedItems.Add(p,Convert.ToInt32(tb.Text));
                 }
             }
@@ -122,7 +131,7 @@ namespace SuperStoreWPF
             bool stockTooLow = false;
             for (int i=0; i < selectProducts.RowDefinitions.Count;i++)
             {
-                Label priceLabel = (Label) selectProducts.Children.Cast<UIElement>().First(ef => Grid.GetColumn(ef) == 1 && Grid.GetRow(ef) == i);
+                Label priceLabel = (Label)selectProducts.Children.Cast<UIElement>().First(ef => Grid.GetColumn(ef) == 1 && Grid.GetRow(ef) == i);
                 Label stockLabel = (Label)selectProducts.Children.Cast<UIElement>().First(ef => Grid.GetColumn(ef) == 2 && Grid.GetRow(ef) == i);
                 TextBox tb = (TextBox)selectProducts.Children.Cast<UIElement>().First(ef => Grid.GetColumn(ef) == 3 && Grid.GetRow(ef) == i);
                 if (!string.IsNullOrWhiteSpace(tb.Text))
