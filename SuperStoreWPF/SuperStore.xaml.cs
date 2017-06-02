@@ -46,6 +46,7 @@ namespace SuperStoreWPF
 
         public void SetupDataGrids()
         {
+            myStore = new Store();
             inventory.Items.Clear();
             inventory.Columns.Clear();
             storage.Items.Clear();
@@ -128,7 +129,6 @@ namespace SuperStoreWPF
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            myStore = new Store();
             SetupDataGrids();
         }
 
