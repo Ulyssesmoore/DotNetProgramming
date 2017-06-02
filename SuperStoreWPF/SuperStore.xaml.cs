@@ -131,5 +131,17 @@ namespace SuperStoreWPF
             myStore = new Store();
             SetupDataGrids();
         }
+
+        public Customer CurrentUser
+        {
+            get { return currentUser; }
+            set { currentUser = value; }
+        }
+
+        public Store MyStore
+        {
+            get { return myStore; }
+            set { myStore = value; }
+        }
     }
 }

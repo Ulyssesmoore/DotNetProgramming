@@ -65,5 +65,6 @@ namespace SuperStoreWPF
                 this.Close();
             }
         }
+
     }
 }
