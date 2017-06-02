@@ -43,8 +43,8 @@ namespace SuperStoreWPF
             }
 
             ProductList.ItemsSource = productList;
-
-            Closing += delegate { storescreen.Show(); };
+            
+            Closing += delegate { storescreen.SetupDataGrids(); storescreen.Show(); };
         }
 
 
@@ -59,7 +59,10 @@ namespace SuperStoreWPF
         {
             if (!string.IsNullOrWhiteSpace(ProductList.Text) && !string.IsNullOrWhiteSpace(AmountInput.Text))
             {
-                
+                IStoreService iss = new SuperStoreWebService2.StoreService();
+                iss.RestockProduct(ProductList.Text, Convert.ToInt32(AmountInput.Text));
+                storescreen.MyStore.Stock = iss.GetStock();
+                this.Close();
             }
         }
     }

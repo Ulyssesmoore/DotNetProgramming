@@ -109,12 +109,14 @@ namespace SuperStoreWPF
                             p = entry.Key;
                         }
                     }
-                        
-                    purchasedItems.Add(p,Convert.ToInt32(tb.Text));
+                    if (p == null) return;
+                    purchasedItems.Add(p, Convert.ToInt32(tb.Text));
                 }
             }
             IStoreService iss = new SuperStoreWebService2.StoreService();
             iss.HandleTransaction(purchasedItems, currentUser , Convert.ToDouble(substraction.Content));
+            currentUser.Budget = Convert.ToDouble(budgetLeft.Content);
+            storescreen.CurrentUser = currentUser;
             this.Close();
         }
 

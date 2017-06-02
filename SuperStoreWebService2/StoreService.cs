@@ -75,5 +75,16 @@ namespace SuperStoreWebService2
             Byte[] hashedBytes = ssp.ComputeHash(inputBytes);
             return BitConverter.ToString(hashedBytes);
         }
+
+        public void RestockProduct(string name, int amount)
+        {
+            var conn = GetConnection();
+            var comm = conn.CreateCommand();
+            comm.CommandText = "UPDATE storages SET amount_stored = amount_stored + ?amount WHERE productid = (select productid from products where name = ?pname)";
+            comm.Parameters.AddWithValue("?pname", name);
+            comm.Parameters.AddWithValue("?amount", amount);
+            comm.ExecuteNonQuery();
+
+        }
     }
 }

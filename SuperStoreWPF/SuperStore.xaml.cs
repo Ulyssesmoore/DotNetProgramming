@@ -125,5 +125,17 @@ namespace SuperStoreWPF
             this.Hide();
             rs.Show();
         }
+
+        public Customer CurrentUser
+        {
+            get { return currentUser; }
+            set { currentUser = value; }
+        }
+
+        public Store MyStore
+        {
+            get { return myStore; }
+            set { myStore = value; }
+        }
     }
 }
