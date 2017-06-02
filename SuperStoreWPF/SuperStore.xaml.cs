@@ -125,5 +125,11 @@ namespace SuperStoreWPF
             this.Hide();
             rs.Show();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            myStore = new Store();
+            SetupDataGrids();
+        }
     }
 }
